@@ -163,7 +163,7 @@ export default {
                 // contar cuantos estados de las tareas son igual a 3
                 let contador = 0;
                 for (let i = 0; i < sizeTareas; i++) {
-                    if (this.tareas[i].idEstado === 3) {
+                    if (this.tareas[i].idEstado === 2) {
                         contador++;
                     }
                 }
