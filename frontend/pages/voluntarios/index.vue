@@ -27,7 +27,8 @@ export default {
     data: () => ({
         voluntarios: [],
         headers: [
-            { text: 'Nombre', align: 'start', value: 'name',},
+            { text: 'ID', align: 'start', value: 'id',},
+            { text: 'Nombre', value: 'name',},
             { text: 'Fecha Nacimiento', value: 'fnacimiento' },
             { text: 'Longitud', value: 'longitude' },
             { text: 'Latitud', value: 'latitude' },
