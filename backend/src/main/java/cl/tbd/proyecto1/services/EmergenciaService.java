@@ -20,7 +20,6 @@ import cl.tbd.proyecto1.models.EmeHabilidad;
 import cl.tbd.proyecto1.models.Emergencia;
 import cl.tbd.proyecto1.models.EmergenciaReq;
 import cl.tbd.proyecto1.repositories.EmergenciaRepository;
-import org.sql2o.Sql2o;
 
 
 @CrossOrigin
@@ -28,7 +27,6 @@ import org.sql2o.Sql2o;
 public class EmergenciaService {
 
     @Autowired
-    private Sql2o sql2o;
 
     private final EmergenciaRepository emergenciaRepository;
     private final EmeHabilidadRepository emeHabilidadRepository;
