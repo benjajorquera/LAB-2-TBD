@@ -15,7 +15,7 @@ public class VoluntarioMongo {
     private String nombre;
     private Date fnacimiento;
 
-    private List<Document> habilidades;
+    private List<HabilidadMongo> habilidades;
     
     public ObjectId get_id() {
         return _id;
@@ -45,11 +45,11 @@ public class VoluntarioMongo {
         this.fnacimiento = fnacimiento;
     }
 
-    public List<Document> getHabilidades() {
+    public List<HabilidadMongo> getHabilidades() {
         return habilidades;
     }
     
-    public void setHabilidades(List<Document> habilidades) {
+    public void setHabilidades(List<HabilidadMongo> habilidades) {
         this.habilidades = habilidades;
     }
 }
