@@ -8,4 +8,5 @@ public interface VoluntarioMongoRepository {
     public int countVoluntarios();
     public List<VoluntarioMongo> getVoluntarios();
     public VoluntarioMongo createVoluntario(VoluntarioMongo voluntario);
+    public double promedioHabilidades();
 }

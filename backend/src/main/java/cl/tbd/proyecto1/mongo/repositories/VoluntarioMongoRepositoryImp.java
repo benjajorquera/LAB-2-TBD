@@ -1,8 +1,11 @@
 package cl.tbd.proyecto1.mongo.repositories;
 
+import org.bson.BsonNull;
 import org.bson.Document;
+import org.bson.conversions.Bson;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import com.mongodb.client.MongoCollection;
@@ -39,6 +42,17 @@ public class VoluntarioMongoRepositoryImp implements VoluntarioMongoRepository {
         MongoCollection<VoluntarioMongo> collection = database.getCollection("voluntarios", VoluntarioMongo.class);
         collection.insertOne(voluntario);
         return voluntario;
+    }
+
+    @Override
+    public double promedioHabilidades() {
+        MongoCollection<Document> collection = database.getCollection("voluntarios");
+        double count = collection.countDocuments();
+        List<Bson> habilidades = Arrays.asList(new Document("$group", new Document("_id", new BsonNull()).append("habilidadesCount", new Document("$sum", new Document("$size", "$habilidades")))));
+        List<Document> output = collection.aggregate(habilidades).into(new ArrayList<Document>());
+        Integer cantidadHabilidades = (Integer) output.get(0).get("habilidadesCount");
+        double resultado = (double) Math.round(cantidadHabilidades * 100 / count) / 100;
+        return resultado;
     }
     
 }

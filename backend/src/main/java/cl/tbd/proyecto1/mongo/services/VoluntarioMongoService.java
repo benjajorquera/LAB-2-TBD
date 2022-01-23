@@ -36,4 +36,10 @@ public class VoluntarioMongoService {
         return result;
     }
 
+    @GetMapping("mongo/voluntarios/promedioHabilidades")
+    public String promedioHabilidades(){
+        double total = voluntarioRepository.promedioHabilidades();
+        return String.format("Los voluntarios tienen en promedio %s habilidades.", total);
+    }
+
 }

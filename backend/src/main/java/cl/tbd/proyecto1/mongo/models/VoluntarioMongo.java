@@ -5,8 +5,6 @@ import org.bson.types.ObjectId;
 import java.util.Date;
 import java.util.List;
 
-import org.bson.Document;
-
 import org.bson.codecs.pojo.annotations.BsonId;
 
 public class VoluntarioMongo {
