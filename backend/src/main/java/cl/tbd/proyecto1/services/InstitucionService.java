@@ -38,7 +38,7 @@ public class InstitucionService {
     }
 
     //Create
-    @PostMapping("/instituciones/create")
+    @PostMapping("/instituciones")
     @ResponseBody
     public Institucion createInstitucion(@RequestBody Institucion institucion){
        Institucion result = institucionRepository.createInstitucion(institucion);

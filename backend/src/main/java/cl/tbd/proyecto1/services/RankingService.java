@@ -41,7 +41,7 @@ public class RankingService {
         return String.format("hay %s rankings registrados", total);
     }
 
-    @PostMapping("/rankings/create/")
+    @PostMapping("/rankings")
     @ResponseBody
     public Ranking createRanking(@RequestBody Ranking ranking){
         Ranking result = rankingRepository.createRanking(ranking);

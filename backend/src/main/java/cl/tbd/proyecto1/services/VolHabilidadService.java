@@ -37,7 +37,7 @@ public class VolHabilidadService {
     }
 
     //Create
-    @PostMapping("/vol_habilidad/create")
+    @PostMapping("/vol_habilidad")
     @ResponseBody
     public VolHabilidad createVolHabilidad(@RequestBody VolHabilidad volHabilidad){
        VolHabilidad result = volHabilidadRepository.createVolHabilidad(volHabilidad);

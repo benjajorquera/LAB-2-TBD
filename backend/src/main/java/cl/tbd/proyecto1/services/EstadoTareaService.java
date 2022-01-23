@@ -16,7 +16,7 @@ public class EstadoTareaService {
         this.estadoTareaRepository = estadoTareaRepository;
     }
 
-    @PostMapping("/estadosTareas/create")
+    @PostMapping("/estadosTareas")
     @ResponseBody
     public EstadoTarea createTarea(@RequestBody EstadoTarea estadoTarea){
         EstadoTarea result = estadoTareaRepository.createEstadoTarea(estadoTarea);

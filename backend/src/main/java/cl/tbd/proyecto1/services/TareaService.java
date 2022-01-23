@@ -16,7 +16,7 @@ public class TareaService {
         this.tareaRepository = tareaRepository;
     }
 
-    @PostMapping("/tareas/create")
+    @PostMapping("/tareas")
     @ResponseBody
     public Tarea createTarea(@RequestBody Tarea tarea){
         Tarea result = tareaRepository.createTarea(tarea);
