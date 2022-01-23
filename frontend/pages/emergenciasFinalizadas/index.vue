@@ -16,6 +16,8 @@
                                 <th class="text-left">Fecha Termino</th>
                                 <th class="text-left">Tareas Totales</th>
                                 <th class="text-left">Voluntarios Totales</th>
+                                <th class="text-left">Longitud</th>
+                                <th class="text-left">Latitud</th>
                                 <th class="text-left">Estado</th>
                             </tr>
                         </thead>
@@ -30,6 +32,8 @@
                                 <td>{{ emergency.ffin }}</td>
                                 <td>{{ emergency.total_tareas }}</td>
                                 <td>{{ emergency.total_voluntarios }}</td>
+                                <td>{{ emergency.longitude }}</td>
+                                <td>{{ emergency.latitude }}</td>
                                 <td>Finalizada</td>
                             </tr>
                         </tbody>
