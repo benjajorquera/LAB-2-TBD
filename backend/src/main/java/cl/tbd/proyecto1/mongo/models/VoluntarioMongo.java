@@ -5,6 +5,8 @@ import org.bson.types.ObjectId;
 import java.util.Date;
 import java.util.List;
 
+import org.bson.Document;
+
 import org.bson.codecs.pojo.annotations.BsonId;
 
 public class VoluntarioMongo {
@@ -12,7 +14,8 @@ public class VoluntarioMongo {
     private ObjectId _id;
     private String nombre;
     private Date fnacimiento;
-    private List<String> habilidades;
+
+    private List<HabilidadMongo> habilidades;
     
     public ObjectId get_id() {
         return _id;
@@ -42,11 +45,11 @@ public class VoluntarioMongo {
         this.fnacimiento = fnacimiento;
     }
 
-    public List<String> getHabilidades() {
+    public List<HabilidadMongo> getHabilidades() {
         return habilidades;
     }
     
-    public void setHabilidades(List<String> habilidades) {
+    public void setHabilidades(List<HabilidadMongo> habilidades) {
         this.habilidades = habilidades;
     }
 }
