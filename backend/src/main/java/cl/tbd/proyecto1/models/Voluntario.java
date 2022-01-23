@@ -8,6 +8,10 @@ public class Voluntario {
     private String nombre;
     private Date fnacimiento;
 
+    // postgis
+    private double longitude;
+    private double latitude;
+
     public Integer getId() {
         return id;
     }
@@ -32,4 +36,20 @@ public class Voluntario {
         this.fnacimiento = fnacimiento;
     }
 
+    // postgis
+    public double getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(double longitude) {
+        this.longitude = longitude;
+    }
+
+    public double getLatitude() {
+        return latitude;
+    }
+
+    public void setLatitude(double latitude) {
+        this.latitude = latitude;
+    }
 }

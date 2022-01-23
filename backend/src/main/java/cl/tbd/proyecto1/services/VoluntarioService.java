@@ -39,7 +39,7 @@ public class VoluntarioService {
     }
 
     //Create
-    @PostMapping("/voluntario/create")
+    @PostMapping("/voluntario")
     @ResponseBody
     public Voluntario createVoluntario(@RequestBody Voluntario voluntario){
        Voluntario result = voluntarioRepository.createVoluntario(voluntario);

@@ -12,6 +12,10 @@ public class EmergenciaReq {
     private Integer id_institucion;
     private List<Integer> habilidades;
 
+    // postgis
+    private double longitude;
+    private double latitude;
+
     public Integer getId() {
         return id;
     }
@@ -66,5 +70,22 @@ public class EmergenciaReq {
 
     public void setHabilidades(List<Integer> habilidades) {
         this.habilidades = habilidades;
+    }
+
+    // postgis
+    public double getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(double longitude) {
+        this.longitude = longitude;
+    }
+
+    public double getLatitude() {
+        return latitude;
+    }
+
+    public void setLatitude(double latitude) {
+        this.latitude = latitude;
     }
 }

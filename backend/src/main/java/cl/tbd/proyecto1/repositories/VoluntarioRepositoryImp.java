@@ -20,7 +20,7 @@ public class VoluntarioRepositoryImp implements VoluntarioRepository{
    @Override
    public List<Voluntario> getAllVoluntario() {
        try (Connection conn = sql2o.open()) {
-           return conn.createQuery("SELECT * FROM voluntario")
+           return conn.createQuery("SELECT id, nombre, fnacimiento, st_x(st_astext(location)) AS longitude, st_y(st_astext(location)) AS latitude FROM voluntario")
                    .executeAndFetch(Voluntario.class);
        } catch (Exception e) {
            System.out.println(e.getMessage());
@@ -31,7 +31,7 @@ public class VoluntarioRepositoryImp implements VoluntarioRepository{
     // Get por id
     @Override
     public Voluntario getVoluntario(Integer id) {
-        String sql = "SELECT * " +
+        String sql = "SELECT id, nombre, fnacimiento, st_x(st_astext(location)) AS longitude, st_y(st_astext(location)) AS latitude " +
                 "FROM voluntario " +
                 "WHERE id = :id";
 
@@ -45,13 +45,16 @@ public class VoluntarioRepositoryImp implements VoluntarioRepository{
     // Create
     @Override
     public Voluntario createVoluntario(Voluntario voluntario){
-        final String insertQuery = "INSERT INTO voluntario (nombre,fnacimiento) " +
-                "VALUES (:nombreV,:fnacimientoV)";
+        final String insertQuery = "INSERT INTO voluntario (nombre,fnacimiento, location) " +
+                "VALUES (:nombreV,:fnacimientoV, ST_GeomFromText(:point, 4326))";
+
+        String point = "POINT(" + voluntario.getLongitude() + " " + voluntario.getLatitude() + ")";
 
         try (Connection conn = sql2o.open()) {
                 int insertedId = (int) conn.createQuery(insertQuery, true)
                     .addParameter("nombreV", voluntario.getName()) 
                     .addParameter("fnacimientoV", voluntario.getFnacimiento())
+                    .addParameter("point", point)
                     .executeUpdate().getKey();
                 voluntario.setId(insertedId);
             return voluntario;

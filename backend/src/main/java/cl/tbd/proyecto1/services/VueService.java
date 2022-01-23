@@ -53,7 +53,8 @@ public class VueService {
                 // EmergenciaFinalizada(Integer id, String nombre, String descrip, Date finicio, Date ffin, Integer id_institucion, Integer total_tareas, Integer total_voluntarios)
                 EmergenciaFinalizada emergenciaFinalizada = new EmergenciaFinalizada(
                     temp.getId(), temp.getName(), temp.getDescrip(), temp.getFinicio(), 
-                    temp.getFfin(), temp.getId_institucion(), totalTareas, totalVoluntarios
+                    temp.getFfin(), temp.getId_institucion(), totalTareas, totalVoluntarios,
+                    temp.getLongitude(), temp.getLatitude()
                     );
                 emergenciasFinalizadas.add(emergenciaFinalizada);
             }

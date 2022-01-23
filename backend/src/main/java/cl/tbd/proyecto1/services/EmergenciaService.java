@@ -100,6 +100,8 @@ public class EmergenciaService {
         em.setFinicio(emr.getFinicio());
         em.setFfin(emr.getFfin());
         em.setId_institucion(emr.getId_institucion());
+        em.setLongitude(emr.getLongitude());
+        em.setLatitude(emr.getLatitude());
         Emergencia result = emergenciaRepository.createEmergencia(em);
         if (result != null){
             for(int i=0; i< emr.getHabilidades().size(); i++){

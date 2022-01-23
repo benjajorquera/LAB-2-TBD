@@ -13,6 +13,10 @@ public class EmergenciaFinalizada {
     private Integer total_tareas;
     private Integer total_voluntarios;
 
+    // postgis
+    private double longitude;
+    private double latitude;
+
     public Integer getId() {
         return id;
     }
@@ -78,8 +82,25 @@ public class EmergenciaFinalizada {
         this.total_voluntarios = total_voluntarios;
     }
 
+    // postgis
+    public double getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(double longitude) {
+        this.longitude = longitude;
+    }
+
+    public double getLatitude() {
+        return latitude;
+    }
+
+    public void setLatitude(double latitude) {
+        this.latitude = latitude;
+    }
+
     // Constructor
-    public EmergenciaFinalizada(Integer id, String nombre, String descrip, Date finicio, Date ffin, Integer id_institucion, Integer total_tareas, Integer total_voluntarios) {
+    public EmergenciaFinalizada(Integer id, String nombre, String descrip, Date finicio, Date ffin, Integer id_institucion, Integer total_tareas, Integer total_voluntarios, double longitude, double latitude) {
         this.id = id;
         this.nombre = nombre;
         this.descrip = descrip;
@@ -88,5 +109,7 @@ public class EmergenciaFinalizada {
         this.id_institucion = id_institucion;
         this.total_tareas = total_tareas;
         this.total_voluntarios = total_voluntarios;
+        this.longitude = longitude;
+        this.latitude = latitude;
     }
 }

@@ -21,7 +21,7 @@ public class EmergenciaRepositoryImp implements EmergenciaRepository {
     public Emergencia getEmergencia(Integer id){
 
         final String sql =
-            "SELECT * " +
+            "SELECT id, nombre, descrip, finicio, ffin, id_institucion, st_x(st_astext(location)) AS longitude, st_y(st_astext(location)) AS latitude " +
             "FROM emergencia " +
             "WHERE id = :id";
 
@@ -39,7 +39,7 @@ public class EmergenciaRepositoryImp implements EmergenciaRepository {
     @Override
     public List<Emergencia> getAllEmergencia() {
         try(Connection conn = sql2o.open()){
-            return conn.createQuery("SELECT * FROM emergencia")
+            return conn.createQuery("SELECT id, nombre, descrip, finicio, ffin, id_institucion, st_x(st_astext(location)) AS longitude, st_y(st_astext(location)) AS latitude FROM emergencia")
                     .executeAndFetch(Emergencia.class);
         } catch (Exception e) {
             System.out.println(e.getMessage());
@@ -52,8 +52,10 @@ public class EmergenciaRepositoryImp implements EmergenciaRepository {
     public Emergencia createEmergencia(Emergencia emergencia) {
 
         final String insertQuery =
-            "INSERT INTO emergencia (nombre,descrip,finicio,ffin,id_institucion) " +
-            "VALUES (:nombreE,:descripE,:finicioE,:ffinE,:id_institucionE)";
+            "INSERT INTO emergencia (nombre,descrip,finicio,ffin,id_institucion, location) " +
+            "VALUES (:nombreE,:descripE,:finicioE,:ffinE,:id_institucionE, ST_GeomFromText(:point, 4326))";
+
+        String point = "POINT(" + emergencia.getLongitude() + " " + emergencia.getLatitude() + ")";
 
         try(Connection conn = sql2o.open()){
             int insertedId = (int) conn.createQuery(insertQuery, true)
@@ -62,6 +64,7 @@ public class EmergenciaRepositoryImp implements EmergenciaRepository {
                     .addParameter("finicioE", emergencia.getFinicio())
                     .addParameter("ffinE", emergencia.getFfin())
                     .addParameter("id_institucionE", emergencia.getId_institucion())
+                    .addParameter("point", point)
                     .executeUpdate().getKey();
                 emergencia.setId(insertedId);
             return emergencia;        
