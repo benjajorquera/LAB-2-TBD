@@ -131,5 +131,31 @@ public class TareaRepositoryImp implements TareaRepository {
             return 0;
         }       
     }
+
+    @Override
+    // getTotalTareasEmergencia
+    public Integer getTotalTareasEmergencia(Integer id){
+        try(Connection conn = sql2o.open()){
+            return conn.createQuery("SELECT COUNT(*) FROM tarea WHERE id_emergencia = :id")
+                    .addParameter("id", id)
+                    .executeScalar(Integer.class);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            return 0;
+        }       
+    }
+
+    @Override
+    // getTotalTareasFinalizadasEmergencia
+    public Integer getTotalTareasFinalizadasEmergencia(Integer id){
+        try(Connection conn = sql2o.open()){
+            return conn.createQuery("SELECT COUNT(*) FROM tarea WHERE id_emergencia = :id AND id_estado = 2")
+                    .addParameter("id", id)
+                    .executeScalar(Integer.class);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            return 0;
+        }       
+    }
     
 }

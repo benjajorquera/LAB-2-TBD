@@ -11,4 +11,6 @@ public interface TareaRepository {
     Boolean deleteTarea(Integer Id);
     List<Tarea> getTareasEmergencia(Integer id);
     Integer getCantVoluntariosEmergencia(Integer id);
+    Integer getTotalTareasEmergencia(Integer id);
+    Integer getTotalTareasFinalizadasEmergencia(Integer id);
 }
