@@ -9,6 +9,8 @@
                 <v-btn to="/emergencias/add">Registro de Emergencia</v-btn>
                 <v-btn to="/emergencias/">Detalles emergencias</v-btn>
                 <v-btn to="/emergenciasFinalizadas/">Emergencias Finalizadas</v-btn>
+                <v-btn to="/voluntarios/">Todos los voluntarios</v-btn>
+                <v-btn to="/voluntarios/add">Nuevo voluntario</v-btn>
             </v-toolbar-items>
 
 

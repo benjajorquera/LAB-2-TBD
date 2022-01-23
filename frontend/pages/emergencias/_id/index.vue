@@ -56,6 +56,29 @@
                                 v-model="estado"
                             ></v-text-field>
                         </v-flex>
+                        
+                        <v-flex xs12>
+                            <v-card-title>
+                                Ubicación
+                            </v-card-title>
+                        </v-flex>
+                        <!-- POSTGIS -->
+                        <v-flex xs12 md6>
+                            <v-text-field
+                                readonly
+                                filled
+                                label="Longitud"
+                                v-model="emergencia.longitude"
+                            ></v-text-field>
+                        </v-flex>
+                        <v-flex xs12 md6>
+                            <v-text-field
+                                readonly
+                                filled
+                                label="Latitud"
+                                v-model="emergencia.latitude"
+                            ></v-text-field>
+                        </v-flex>
                     </v-layout>
                 </v-container>
             </v-card-text>
