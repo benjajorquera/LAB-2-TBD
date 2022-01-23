@@ -19,7 +19,7 @@ public class MongoConfig {
         CodecRegistry fromProvider = CodecRegistries.fromProviders(PojoCodecProvider.builder().automatic(true).build());
         CodecRegistry pojoCodecRegistry = CodecRegistries.fromRegistries(defaultCodecRegistry, fromProvider);
         MongoClient mongoClient =  MongoClients.create();
-        MongoDatabase database = mongoClient.getDatabase("tbd").withCodecRegistry(pojoCodecRegistry);
+        MongoDatabase database = mongoClient.getDatabase("dbvoluntariado").withCodecRegistry(pojoCodecRegistry);
         return database;
     }
 }
