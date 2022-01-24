@@ -54,5 +54,25 @@ public class VoluntarioMongoRepositoryImp implements VoluntarioMongoRepository {
         double resultado = (double) Math.round(cantidadHabilidades * 100 / count) / 100;
         return resultado;
     }
-    
+
+    // @Override
+    // public VoluntarioMongo getVoluntario(Integer id) {
+    //     MongoCollection<VoluntarioMongo> collection = database.getCollection("voluntario", VoluntarioMongo.class);
+    //     VoluntarioMongo voluntario = collection.find({"id":{$eq:id}}); 
+    //     return voluntario;
+    // }
+
+    // @Override
+    // public VoluntarioMongo updateVoluntario(VoluntarioMongo voluntario) {
+    //     MongoCollection<VoluntarioMongo> collection = database.getCollection("voluntario", VoluntarioMongo.class);
+    //     collection.updateOne(voluntario);
+    //     return voluntario;
+    // }
+
+    // @Override
+    // public VoluntarioMongo deleteVoluntario(Integer id) {
+    //     MongoCollection<VoluntarioMongo> collection = database.getCollection("habilidad", VoluntarioMongo.class);
+    //     collection.deleteOne({"id":id});
+    //     return habilidad;
+    // }
 }
