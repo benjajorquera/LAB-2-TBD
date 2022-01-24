@@ -8,10 +8,12 @@ import java.util.List;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import cl.tbd.proyecto1.mongo.models.HabilidadMongo;
+import com.mongodb.client.model.Filters;
 
 @Repository
 public class HabilidadMongoRepositoryImp implements HabilidadMongoRepository {
@@ -40,27 +42,19 @@ public class HabilidadMongoRepositoryImp implements HabilidadMongoRepository {
         collection.insertOne(habilidad);
         return habilidad;
     }
-    
 
-/*     @Override
+    @Override
+    public Integer deleteHabilidad(Integer id) {
+        MongoCollection<HabilidadMongo> collection = database.getCollection("habilidad", HabilidadMongo.class);
+        collection.deleteOne(Filters.eq("_id",id));
+        return 1;
+    } 
+
+    @Override
     public HabilidadMongo getHabilidad(Integer id) {
         MongoCollection<HabilidadMongo> collection = database.getCollection("habilidad", HabilidadMongo.class);
-        HabilidadMongo habilidad = collection.find({"id":id});
-    
+        HabilidadMongo habilidad = (HabilidadMongo) collection.find(Filters.eq("_id",id));
         return habilidad;
-    }
+    } 
 
-    @Override
-    public HabilidadMongo updateHabilidad(HabilidadMongo habilidad) {
-        MongoCollection<HabilidadMongo> collection = database.getCollection("habilidad", HabilidadMongo.class);
-        collection.updateOne(habilidad);
-        return habilidad;
-    }
-
-    @Override
-    public HabilidadMongo deleteHabilidad(Integer id) {
-        MongoCollection<HabilidadMongo> collection = database.getCollection("habilidad", HabilidadMongo.class);
-        collection.deleteOne({"id":id});
-        return habilidad;
-    } */
 }
