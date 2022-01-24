@@ -9,6 +9,8 @@ Laboratorio 2021-2
 
 4. Cambiar la configuración de la bd en backend > src > main > java\cl\tbd\proyecto1 > repositories > DatabaseContext.java con el nombre de la base de datos y la respectiva contraseña.
 
+5. Crear una base de datos en MongoDB con nombre "dbvoluntariado", en ella crear la colección "voluntarios" y "habilidad"
+
 # Para correr el proyecto
 
 ## Frontend
