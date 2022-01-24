@@ -32,7 +32,7 @@ public class HabilidadMongoService {
 
     @PostMapping("/mongo/habilidades")
     @ResponseBody
-    public HabilidadMongo createDog(@RequestBody HabilidadMongo habilidad){
+    public HabilidadMongo createHabilidad(@RequestBody HabilidadMongo habilidad){
         HabilidadMongo result = habilidadRepository.createHabilidad(habilidad);
         return result;
     }
