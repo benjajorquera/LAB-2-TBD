@@ -6,6 +6,7 @@ build/
 !**/src/test/**/build/
 src/main/java/cl/tbd/proyecto1/mongo/MongoConfig.java
 src/main/resources/application.properties
+src/main/java/cl/tbd/proyecto1/repositories/DatabaseContext.java
 
 ### STS ###
 .apt_generated
