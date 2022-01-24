@@ -56,12 +56,13 @@ public class VoluntarioMongoRepositoryImp implements VoluntarioMongoRepository {
         return resultado;
     }
 
-    // @Override
-    // public VoluntarioMongo getVoluntario(Integer id) {
-    //     MongoCollection<VoluntarioMongo> collection = database.getCollection("voluntario", VoluntarioMongo.class);
-    //     VoluntarioMongo voluntario = collection.find({"id":{$eq:id}}); 
-    //     return voluntario;
-    // }
+     @Override
+     public VoluntarioMongo getVoluntario(Integer id) {
+         MongoCollection<VoluntarioMongo> collection = database.getCollection("voluntario", VoluntarioMongo.class);
+         VoluntarioMongo voluntario = (VoluntarioMongo) collection.find(Filters.eq("_id",id)); 
+         return voluntario;
+    }
+    
 
     // @Override
     // public VoluntarioMongo updateVoluntario(VoluntarioMongo voluntario) {
@@ -74,6 +75,6 @@ public class VoluntarioMongoRepositoryImp implements VoluntarioMongoRepository {
     public Integer deleteVoluntario(Integer id) {
         MongoCollection<VoluntarioMongo> collection = database.getCollection("voluntario", VoluntarioMongo.class);
         collection.deleteOne(Filters.eq("_id",id));
-        return id;
+        return 1;
     }
 }

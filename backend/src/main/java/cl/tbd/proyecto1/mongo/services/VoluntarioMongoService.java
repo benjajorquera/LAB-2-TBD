@@ -59,8 +59,8 @@ public class VoluntarioMongoService {
     }
 
      //Update
-     @PutMapping("mongo/voluntarios/update")
-     public String updateVoluntario(@RequestParam Integer id, @RequestParam(required = false) String nombre, @RequestParam(required = false) Date fNacimiento){
+     //@PutMapping("mongo/voluntarios/update")
+     /* public String updateVoluntario(@RequestParam Integer id, @RequestParam(required = false) String nombre, @RequestParam(required = false) Date fNacimiento){
          Voluntario voluntarioAux = getVoluntario(id);
          if(voluntarioAux == null){
              return String.format("EL voluntario con id = %s no existe.", id);
@@ -79,7 +79,7 @@ public class VoluntarioMongoService {
          else{
              return String.format("El Voluntario con id = %s se actualizo.", id);
          }
-     }
+     } */
  
      //Delete
      @DeleteMapping("mongo/voluntarios/delete/{id}")

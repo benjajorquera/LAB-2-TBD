@@ -11,7 +11,7 @@ public interface VoluntarioMongoRepository {
     public List<VoluntarioMongo> getVoluntarios();
     public VoluntarioMongo createVoluntario(VoluntarioMongo voluntario);
     public double promedioHabilidades();
-    // public VoluntarioMongo getVoluntario(Integer id);
+    public VoluntarioMongo getVoluntario(Integer id);
     // public VoluntarioMongo updateVoluntario(VoluntarioMongo voluntario);
-    // public VoluntarioMongo deleteVoluntario(Integer id);
+    public Integer deleteVoluntario(Integer id);
 }
