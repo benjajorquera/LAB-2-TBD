@@ -1,4 +1,4 @@
-# Lab_TBD
+# Lab-2-TBD
 Laboratorio 2021-2
 
 # Instrucciones:
