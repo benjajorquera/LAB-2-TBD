@@ -10,6 +10,7 @@ import java.util.List;
 
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
+import com.mongodb.client.model.Filters;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -65,14 +66,14 @@ public class VoluntarioMongoRepositoryImp implements VoluntarioMongoRepository {
     // @Override
     // public VoluntarioMongo updateVoluntario(VoluntarioMongo voluntario) {
     //     MongoCollection<VoluntarioMongo> collection = database.getCollection("voluntario", VoluntarioMongo.class);
-    //     collection.updateOne(voluntario);
+    //     collection.update(voluntario);
     //     return voluntario;
     // }
 
-    // @Override
-    // public VoluntarioMongo deleteVoluntario(Integer id) {
-    //     MongoCollection<VoluntarioMongo> collection = database.getCollection("habilidad", VoluntarioMongo.class);
-    //     collection.deleteOne({"id":id});
-    //     return habilidad;
-    // }
+    @Override
+    public Integer deleteVoluntario(Integer id) {
+        MongoCollection<VoluntarioMongo> collection = database.getCollection("voluntario", VoluntarioMongo.class);
+        collection.deleteOne(Filters.eq("_id",id));
+        return id;
+    }
 }
