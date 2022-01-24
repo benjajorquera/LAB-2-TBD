@@ -41,4 +41,26 @@ public class HabilidadMongoRepositoryImp implements HabilidadMongoRepository {
         return habilidad;
     }
     
+
+/*     @Override
+    public HabilidadMongo getHabilidad(Integer id) {
+        MongoCollection<HabilidadMongo> collection = database.getCollection("habilidad", HabilidadMongo.class);
+        HabilidadMongo habilidad = collection.find({"id":id});
+    
+        return habilidad;
+    }
+
+    @Override
+    public HabilidadMongo updateHabilidad(HabilidadMongo habilidad) {
+        MongoCollection<HabilidadMongo> collection = database.getCollection("habilidad", HabilidadMongo.class);
+        collection.updateOne(habilidad);
+        return habilidad;
+    }
+
+    @Override
+    public HabilidadMongo deleteHabilidad(Integer id) {
+        MongoCollection<HabilidadMongo> collection = database.getCollection("habilidad", HabilidadMongo.class);
+        collection.deleteOne({"id":id});
+        return habilidad;
+    } */
 }
